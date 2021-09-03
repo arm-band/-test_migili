@@ -1,23 +1,23 @@
 window.addEventListener('load', () => {
     const imgTags = document.querySelectorAll('img');
-    for (const [key, val] of Object.entries(imgTags)) {
-        val.oncontextmenu = (e) => {
+    Object.values(imgTags).map((imgTag) => {
+        imgTag.oncontextmenu = (e) => {
             // 右クリック禁止
             e.preventDefault();
             e.stopPropagation();
             return false;
         };
-        val.onselectstart = (e) => {
+        imgTag.onselectstart = (e) => {
             // 選択開始禁止
             e.preventDefault();
             e.stopPropagation();
             return false;
         };
-        val.onmousedown = (e) => {
+        imgTag.onmousedown = (e) => {
             // マウスダウン禁止
             e.preventDefault();
             e.stopPropagation();
             return false;
         };
-    }
+    });
 });
